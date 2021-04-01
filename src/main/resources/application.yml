@@ -19,7 +19,9 @@ spring:
     change-log: classpath:db/changelog/changelog-master.xml
   jpa:
     show-sql: true
-    database-platform: org.hibernate.dialect.H2Dialect
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
   h2:
     console:
       enabled: true

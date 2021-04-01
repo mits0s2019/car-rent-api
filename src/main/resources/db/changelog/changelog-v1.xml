@@ -6,17 +6,17 @@
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
 
     <changeSet id="1" author="dPap">
-        <createTable tableName="cars">
-            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+        <createTable tableName="car">
+            <column name="id" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="brand" type="varchar(255)">
                 <constraints nullable="false"/>
             </column>
-            <column name="price" type="varchar(255)">
+            <column name="price" type="decimal(10,3)">
                 <constraints nullable="false"/>
             </column>
-            <column name="url" type="varchar(255)">
+            <column name="url" type="varchar(max)">
                 <constraints nullable="true"/>
             </column>
         </createTable>
