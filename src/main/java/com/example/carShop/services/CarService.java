@@ -12,7 +12,6 @@ import java.util.List;
 @Service
 public class CarService {
 
-
     private final CarRepository carRepository;
     private final ModelMapper modelMapper;
 

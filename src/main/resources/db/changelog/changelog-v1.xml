@@ -13,7 +13,7 @@
             <column name="brand" type="varchar(255)">
                 <constraints nullable="false"/>
             </column>
-            <column name="price" type="decimal(10,3)">
+            <column name="price" type="numeric">
                 <constraints nullable="false"/>
             </column>
             <column name="url" type="varchar(max)">
