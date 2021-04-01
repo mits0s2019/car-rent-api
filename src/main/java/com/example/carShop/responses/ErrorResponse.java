@@ -1,4 +1,4 @@
-package com.example.carShop.models.dto.responses;
+package com.example.carShop.responses;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

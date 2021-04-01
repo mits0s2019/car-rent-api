@@ -1,4 +1,4 @@
-package com.example.carShop.models.persistence;
+package com.example.carShop.models;
 
 import lombok.Getter;
 import lombok.Setter;

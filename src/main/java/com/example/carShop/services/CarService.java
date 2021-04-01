@@ -1,11 +1,13 @@
 package com.example.carShop.services;
 
-import com.example.carShop.models.dto.requests.SaveCarDTO;
-import com.example.carShop.models.persistence.Car;
+import com.example.carShop.dto.cars.CarDTO;
+import com.example.carShop.models.Car;
 import com.example.carShop.repositories.CarRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class CarService {
@@ -20,8 +22,12 @@ public class CarService {
         this.modelMapper = modelMapper;
     }
 
-    public void saveCar(SaveCarDTO carDTO) {
+    public void saveCar(CarDTO carDTO) {
         Car car = modelMapper.map(carDTO, Car.class);
         carRepository.save(car);
+    }
+
+    public List<CarDTO> fetchCars() {
+        return carRepository.fetchCars();
     }
 }

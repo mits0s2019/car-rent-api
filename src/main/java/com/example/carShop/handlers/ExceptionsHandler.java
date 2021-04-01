@@ -1,7 +1,7 @@
 package com.example.carShop.handlers;
 
 import com.example.carShop.exceptions.CarApiException;
-import com.example.carShop.models.dto.responses.ErrorResponse;
+import com.example.carShop.responses.ErrorResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;

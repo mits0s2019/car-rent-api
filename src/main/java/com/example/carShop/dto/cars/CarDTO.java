@@ -1,16 +1,18 @@
-package com.example.carShop.models.dto.requests;
+package com.example.carShop.dto.cars;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Positive;
 
 @Getter
 @Setter
-@ToString
-public class SaveCarDTO {
+@NoArgsConstructor
+@AllArgsConstructor
+public class CarDTO {
 
     @NotBlank(message = "Brand is mandatory")
     private String brand;
