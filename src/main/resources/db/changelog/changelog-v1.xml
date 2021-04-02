@@ -5,6 +5,10 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
 
+    <property  name="price.type"  value="numeric"  dbms="h2"/>
+<!--    <property  name="price.type"  value="numeric"  dbms="postgresql"/>-->
+
+
     <changeSet id="1" author="dPap">
         <createTable tableName="car">
             <column name="id" type="bigint" autoIncrement="true">
@@ -13,7 +17,7 @@
             <column name="brand" type="varchar(255)">
                 <constraints nullable="false"/>
             </column>
-            <column name="price" type="numeric">
+            <column name="price" type="${price.type}">
                 <constraints nullable="false"/>
             </column>
             <column name="url" type="varchar(max)">

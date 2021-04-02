@@ -1,9 +1,9 @@
 package com.example.carShop.services;
 
 import com.example.carShop.dto.cars.CarDTO;
+import com.example.carShop.mappers.CarMapper;
 import com.example.carShop.models.Car;
 import com.example.carShop.repositories.CarRepository;
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,20 +13,21 @@ import java.util.List;
 public class CarService {
 
     private final CarRepository carRepository;
-    private final ModelMapper modelMapper;
+    private final CarMapper carMapper;
 
     @Autowired
-    public CarService(CarRepository carRepository, ModelMapper modelMapper) {
+    public CarService(CarRepository carRepository, CarMapper carMapper) {
         this.carRepository = carRepository;
-        this.modelMapper = modelMapper;
+        this.carMapper = carMapper;
     }
 
     public void saveCar(CarDTO carDTO) {
-        Car car = modelMapper.map(carDTO, Car.class);
+        Car car = carMapper.mapToEntity(carDTO);
         carRepository.save(car);
     }
 
     public List<CarDTO> fetchCars() {
-        return carRepository.fetchCars();
+        List<Car> cars = carRepository.findAll();
+        return carMapper.mapToListDTO(cars);
     }
 }
