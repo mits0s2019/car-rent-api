@@ -21,7 +21,9 @@ public class Car {
     @Positive
     private double price;
     private String url;
-    @ManyToOne
+    @Column(name = "is_rented")
+    private boolean isRented;
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="user_id", nullable=false)
     private User user;
 }

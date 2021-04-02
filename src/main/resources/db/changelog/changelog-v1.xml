@@ -41,8 +41,11 @@
             <column name="url" type="varchar(max)">
                 <constraints nullable="true"/>
             </column>
+            <column name="is_rented" type="boolean" defaultOnNull="false">
+                <constraints nullable="true"/>
+            </column>
             <column name="user_id" type="bigint">
-                <constraints nullable="false" foreignKeyName="fk_cars_users_id" references="users(id)"/>
+                <constraints nullable="true" foreignKeyName="fk_cars_users_id" references="users(id)"/>
             </column>
         </createTable>
     </changeSet>

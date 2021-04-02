@@ -1,20 +1,14 @@
 package com.example.carShop.mappers;
 
-import com.example.carShop.dto.cars.CarDTO;
-import com.example.carShop.models.Car;
+import com.example.carShop.dto.users.SaveUserDTO;
+import com.example.carShop.models.User;
 import org.mapstruct.Mapper;
 import org.mapstruct.NullValueCheckStrategy;
 import org.mapstruct.NullValuePropertyMappingStrategy;
 
-import java.util.List;
-
 @Mapper(componentModel = "spring", nullValueCheckStrategy = NullValueCheckStrategy.ALWAYS,
         nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
-public interface CarMapper {
+public interface UserMapper {
 
-    CarDTO mapToDTO(Car car);
-
-    Car mapToEntity(CarDTO car);
-
-    List<CarDTO> mapToListDTO(List<Car> cars);
+    User mapToEntity(SaveUserDTO saveUserDTO);
 }
