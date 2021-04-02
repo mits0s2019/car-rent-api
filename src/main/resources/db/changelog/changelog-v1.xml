@@ -5,12 +5,30 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
 
-    <property  name="price.type"  value="numeric"  dbms="h2"/>
-<!--    <property  name="price.type"  value="numeric"  dbms="postgresql"/>-->
+    <property name="price.type" value="numeric" dbms="h2"/>
+    <!--    <property  name="price.type"  value="numeric"  dbms="postgresql"/>-->
 
+    <!--    USERS TABLE -->
 
     <changeSet id="1" author="dPap">
-        <createTable tableName="car">
+        <createTable tableName="users">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="first_name" type="varchar(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_name" type="varchar(32)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+
+    <!--    CARS TABLE  -->
+
+    <changeSet id="2" author="dPap">
+        <createTable tableName="cars">
             <column name="id" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
@@ -22,6 +40,9 @@
             </column>
             <column name="url" type="varchar(max)">
                 <constraints nullable="true"/>
+            </column>
+            <column name="user_id" type="bigint">
+                <constraints nullable="false" foreignKeyName="fk_cars_users_id" references="users(id)"/>
             </column>
         </createTable>
     </changeSet>

@@ -3,16 +3,14 @@ package com.example.carShop.models;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Positive;
 
 @Entity
 @Getter
 @Setter
+@Table(name = "cars")
 public class Car {
 
     @Id
@@ -23,4 +21,7 @@ public class Car {
     @Positive
     private double price;
     private String url;
+    @ManyToOne
+    @JoinColumn(name="user_id", nullable=false)
+    private User user;
 }
