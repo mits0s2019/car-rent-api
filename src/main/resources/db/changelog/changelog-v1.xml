@@ -15,10 +15,16 @@
             <column name="id" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
+            <column name="username" type="varchar(32)">
+                <constraints nullable="false"/>
+            </column>
             <column name="first_name" type="varchar(32)">
                 <constraints nullable="false"/>
             </column>
             <column name="last_name" type="varchar(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="varchar(32)">
                 <constraints nullable="false"/>
             </column>
         </createTable>

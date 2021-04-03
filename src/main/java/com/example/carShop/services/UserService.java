@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 
 @Service
 public class UserService {
@@ -28,6 +30,9 @@ public class UserService {
         userRepository.save(user);
     }
 
+    public List<User> getUsers() {
+        return userRepository.findAll();
+    }
 
     public User findUserById(Long userId) throws CarApiException {
         return userRepository.findById(userId).orElseThrow(() -> new CarApiException("User not found", HttpStatus.NOT_FOUND));

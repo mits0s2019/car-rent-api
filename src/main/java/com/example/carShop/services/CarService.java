@@ -38,7 +38,7 @@ public class CarService {
         return carRepository.findById(carId).orElseThrow(() -> new CarApiException("Car not found", HttpStatus.NOT_FOUND));
     }
 
-    public void saveCarToUser(User user, Car car) {
+    public void assignCarToUser(User user, Car car) {
         car.setUser(user);
         carRepository.save(car);
     }

@@ -41,11 +41,10 @@ public class CarController {
     }
 
     @PostMapping(value = "/{carId}/users/{userId}")
-    public void addCarsToUserRequest(@PathVariable("userId") Long userId, @PathVariable("carId") Long carId) throws CarApiException {
+    public void assignCarToUserRequest(@PathVariable("userId") Long userId, @PathVariable("carId") Long carId) throws CarApiException {
 
         User user = userService.findUserById(userId);
         Car car = carService.findCarById(carId);
-
-        carService.saveCarToUser(user, car);
+        carService.assignCarToUser(user, car);
     }
 }

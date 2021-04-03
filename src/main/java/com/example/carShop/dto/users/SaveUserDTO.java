@@ -9,8 +9,12 @@ import javax.validation.constraints.NotBlank;
 @Setter
 public class SaveUserDTO {
 
+    @NotBlank(message = "username is mandatory")
+    private String username;
     @NotBlank(message = "first name is mandatory")
     private String firstName;
     @NotBlank(message = "last name is mandatory")
     private String lastName;
+    @NotBlank(message = "email is mandatory")
+    private String email;
 }
