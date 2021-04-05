@@ -1,0 +1,6 @@
+#FileLock
+#Mon Apr 05 12:36:00 EEST 2021
+hostName=DEV-09.inter.the
+id=178a16392b2fa5dbdf26104b6f4f32a1dc545794c0a
+method=file
+server=10.0.70.119\:54853

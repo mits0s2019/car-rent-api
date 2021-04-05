@@ -16,11 +16,11 @@ spring:
     password: password
   liquibase:
     enabled: true
-    change-log: classpath:db/changelog/changelog-master.xml
+    change-log: classpath:db/changelog-master.xml
   jpa:
     show-sql: true
-    hibernate:
-      ddl-auto: create-drop
+#    hibernate:
+#      ddl-auto: create-drop
     properties:
       hibernate:
         dialect: org.hibernate.dialect.H2Dialect
@@ -28,3 +28,9 @@ spring:
   h2:
     console:
       enabled: true
+
+app:
+  secret: the_secret
+  token-validity-in-seconds: 2592000
+  jwt:
+    token-name: CAR-SHOP-TOKEN

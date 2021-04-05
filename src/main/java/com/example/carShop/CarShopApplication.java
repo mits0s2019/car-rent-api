@@ -3,7 +3,10 @@ package com.example.carShop;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {
+		"com.intersalonica.security",
+		"com.example.carShop"
+})
 public class CarShopApplication {
 
 	public static void main(String[] args) {
