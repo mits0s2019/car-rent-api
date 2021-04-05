@@ -1,6 +1,7 @@
 package com.example.carShop.controllers;
 
 import com.example.carShop.dto.users.UserDTO;
+import com.example.carShop.services.UserService;
 import com.intersalonica.security.dto.UserDetailsDTO;
 import com.intersalonica.security.entity.AuthUser;
 import com.intersalonica.security.entity.Role;
@@ -25,6 +26,7 @@ public class CarShopController {
     private final PrivilegeRepository privilegeRepository;
     private final RoleRepository roleRepository;
     private final PasswordEncoder passwordEncoder;
+    private final UserService userService;
 
     @PostMapping
     @RequestMapping("/login")
@@ -53,6 +55,6 @@ public class CarShopController {
         authUser.setRoles(roles);
 
         this.authUserRepository.save(authUser);
+        userService.saveUser(userDTO);
     }
-
 }

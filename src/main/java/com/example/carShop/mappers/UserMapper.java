@@ -1,6 +1,5 @@
 package com.example.carShop.mappers;
 
-import com.example.carShop.dto.users.SaveUserDTO;
 import com.example.carShop.dto.users.UserDTO;
 import com.example.carShop.models.User;
 import org.mapstruct.Mapper;
@@ -13,7 +12,7 @@ import java.util.List;
         nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
 public interface UserMapper {
 
-    User mapToEntity(SaveUserDTO saveUserDTO);
+    User mapToEntity(UserDTO saveUserDTO);
 
     List<UserDTO> mapToListDTO(List<User> cars);
 }
