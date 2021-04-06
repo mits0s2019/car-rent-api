@@ -54,8 +54,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         configuration.setAllowedOrigins(Arrays.asList("*"));
         configuration.setAllowCredentials(true);
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "TRACE", "OPTIONS", "PATCH"));
-        configuration.setAllowedHeaders(Arrays.asList("CAR-SHOP-TOKEN", "X-LOGIN-SUCCESS", "X-LOGOUT-SUCCESS", "Content-type", "Access-Control-Allow-Origin"));
-        configuration.setExposedHeaders(Arrays.asList("CAR-SHOP-TOKEN", "X-LOGIN-SUCCESS", "X-LOGOUT-SUCCESS"));
+        configuration.setAllowedHeaders(Arrays.asList("CAR-SHOP-TOKEN", "X-LOGIN-SUCCESS", "X-LOGOUT-SUCCESS", "Content-type", "Access-Control-Allow-Origin", "X-VALIDATION-ERROR"));
+        configuration.setExposedHeaders(Arrays.asList("CAR-SHOP-TOKEN", "X-LOGIN-SUCCESS", "X-LOGOUT-SUCCESS", "X-VALIDATION-ERROR"));
         source.registerCorsConfiguration("/**", configuration);
         return new CorsFilter(source);
     }

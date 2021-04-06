@@ -9,6 +9,8 @@ import com.intersalonica.security.repository.AuthUserRepository;
 import com.intersalonica.security.repository.PrivilegeRepository;
 import com.intersalonica.security.repository.RoleRepository;
 import com.intersalonica.security.service.InterSecurityService;
+import com.intersalonica.validation.config.annotation.Validator;
+import com.intersalonica.validation.config.exception.ValidationException;
 import lombok.AllArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
@@ -41,9 +43,10 @@ public class CarShopController {
         interSecurityService.setLogoutSuccessHeader(response);
     }
 
+    @Validator
     @PostMapping
     @RequestMapping("/register")
-    public void userRegister(@RequestBody UserDTO userDTO) {
+    public void userRegister(@RequestBody UserDTO userDTO) throws ValidationException {
         AuthUser authUser = new AuthUser();
         authUser.setUsername(userDTO.getUsername());
         authUser.setPassword(passwordEncoder.encode(userDTO.getPassword()));
