@@ -8,6 +8,7 @@ import com.example.carShop.repositories.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
@@ -26,8 +27,8 @@ public class UserService {
         userRepository.save(user);
     }
 
-    public Page<User> getUsers(Pageable pageable) {
-        return userRepository.findAll(pageable);
+    public Page<User> getUsers(Pageable pageable, Specification<User> userSpecification) {
+        return userRepository.findAll(userSpecification, pageable);
     }
 
     public User findUserById(Long userId) throws CarApiException {
