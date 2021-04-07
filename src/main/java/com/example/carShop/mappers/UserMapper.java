@@ -5,6 +5,7 @@ import com.example.carShop.models.User;
 import org.mapstruct.Mapper;
 import org.mapstruct.NullValueCheckStrategy;
 import org.mapstruct.NullValuePropertyMappingStrategy;
+import org.springframework.data.domain.Page;
 
 import java.util.List;
 
@@ -15,4 +16,6 @@ public interface UserMapper {
     User mapToEntity(UserDTO saveUserDTO);
 
     List<UserDTO> mapToListDTO(List<User> cars);
+
+//    Page<UserDTO> mapToPageDTO(Page<User> user);
 }
