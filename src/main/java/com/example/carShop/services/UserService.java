@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 
 @Service
@@ -30,5 +31,9 @@ public class UserService {
 
     public User findUserById(Long userId) throws CarApiException {
         return userRepository.findById(userId).orElseThrow(() -> new CarApiException("User not found", HttpStatus.NOT_FOUND));
+    }
+
+    public Optional<User> findByUsername(String username) {
+        return userRepository.findUserByUsername(username);
     }
 }
